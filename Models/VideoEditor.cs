@@ -29,7 +29,6 @@ namespace LR3.Models
             if (!Capture.IsOpened)
                 throw new InvalidOperationException("Не удалось открыть видеофайл");
 
-            DetectText();
             updateFrames();
         }
 

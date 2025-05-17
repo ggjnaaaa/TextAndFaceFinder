@@ -26,7 +26,8 @@ namespace LR3.Models
 
         protected override void UpdateProcessedImage()
         {
-            Draw.DrawRegions(GetOriginal(), DetectedRegions, ActiveRegion);
+            ProcessedImage = GetOriginal();
+            Draw.DrawRegions(ProcessedImage, DetectedRegions, ActiveRegion);
         }
         protected override void ReadTextFromRegion(Rectangle region)
         {

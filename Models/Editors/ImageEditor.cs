@@ -2,7 +2,7 @@
 using Emgu.CV;
 using LR3.Services;
 
-namespace LR3.Models
+namespace LR3.Models.Editors
 {
     internal class ImageEditor : MediaEditorBase
     {

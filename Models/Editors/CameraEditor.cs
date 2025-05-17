@@ -1,6 +1,6 @@
 ﻿using Emgu.CV;
 
-namespace LR3.Models
+namespace LR3.Models.Editors
 {
     internal class CameraEditor : VideoEditor
     {

@@ -1,5 +1,6 @@
 using LR3.Services;
 using LR3.Models;
+using LR3.Models.Editors;
 
 namespace LR3
 {

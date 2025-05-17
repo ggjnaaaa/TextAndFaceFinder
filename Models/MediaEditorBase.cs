@@ -7,7 +7,7 @@ namespace LR3.Models
     internal abstract class MediaEditorBase : IDisposable
     {
         public event Action OnUpdate;
-        public Action<string> OnTextRecognized;
+        public event Action<string> OnTextRecognized;
         public bool IsVideo { get; protected set; } = false;
         public List<Rectangle> DetectedRegions { get; protected set; } = new();
         public Rectangle? ActiveRegion { get; protected set; } = null;
@@ -55,6 +55,11 @@ namespace LR3.Models
             OnUpdate?.Invoke();
         }
 
+        protected void OnTextRecognizedInvoke(string str)
+        {
+            OnTextRecognized?.Invoke(str);
+        }
+
         public abstract Image<Bgr, byte> GetOriginal();
         public abstract Image<Bgr, byte> GetProcessed();
         public abstract void ResetChanges();
@@ -84,6 +89,9 @@ namespace LR3.Models
         }
         public virtual void HighlightRectangle(int x, int y)
         {
+            if (!_isTextDetectionEnabled)
+                return;
+
             var closest = findRectangle(x, y);
 
             if (closest != null)

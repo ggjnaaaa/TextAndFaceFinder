@@ -58,7 +58,7 @@ namespace LR3
         private void subscribeTextRecognized()
         {
             if (_editor == null) return;
-            _editor.OnTextRecognized = text =>
+            _editor.OnTextRecognized += text =>
             {
                 RecognizedText.Text = text;
             };

@@ -35,7 +35,7 @@ namespace LR3.Models.Editors
                 return;
             var text = recognitionService.Recognize(OriginalImage.Mat, region);
             MessageBox.Show(text, "Распознанный текст", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            OnTextRecognized?.Invoke(text);
+            OnTextRecognizedInvoke(text);
         }
         public override void DetectFaces()
         {
